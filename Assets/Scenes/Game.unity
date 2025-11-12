@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3757697, g: 0.6143081, b: 0.86705774, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -898,11 +897,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261970909}
   m_CullTransparentMesh: 1
---- !u!4 &278404525 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 59b25258304e7084fb98207deb764798, type: 3}
-  m_PrefabInstance: {fileID: 1768506913}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &278503168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,7 +2760,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1678290021}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f2af62904e9521549a5a252742128642, type: 3}
       propertyPath: m_LocalScale.x
@@ -2987,7 +2981,7 @@ Transform:
   m_Children:
   - {fileID: 866416499}
   - {fileID: 1763223027}
-  m_Father: {fileID: 1678290021}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &816713721
 GameObject:
@@ -3656,16 +3650,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971853913}
   m_CullTransparentMesh: 1
---- !u!4 &1014816180 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2af62904e9521549a5a252742128642, type: 3}
-  m_PrefabInstance: {fileID: 1295355997}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1019223151 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2af62904e9521549a5a252742128642, type: 3}
-  m_PrefabInstance: {fileID: 741795462}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1035034105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4292154010595695564, guid: 795375c0d89d22b48869f72cd604cf69, type: 3}
@@ -4326,7 +4310,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1678290021}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f2af62904e9521549a5a252742128642, type: 3}
       propertyPath: m_LocalScale.x
@@ -5474,7 +5458,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1678290021}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -9107170713917444485, guid: 795375c0d89d22b48869f72cd604cf69, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6145,11 +6129,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1406266098}
-  - {fileID: 278404525}
-  - {fileID: 1583499119}
-  - {fileID: 1014816180}
-  - {fileID: 1019223151}
-  - {fileID: 776850247}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1727051503
@@ -6502,7 +6481,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1678290021}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 59b25258304e7084fb98207deb764798, type: 3}
       propertyPath: m_LocalScale.x
@@ -6510,11 +6489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b25258304e7084fb98207deb764798, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1000
+      value: 1000.00024
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b25258304e7084fb98207deb764798, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1000
+      value: 1000.00024
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b25258304e7084fb98207deb764798, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7327,3 +7306,8 @@ SceneRoots:
   - {fileID: 1678290021}
   - {fileID: 182465630}
   - {fileID: 1612450441}
+  - {fileID: 1768506913}
+  - {fileID: 1675988735}
+  - {fileID: 1295355997}
+  - {fileID: 741795462}
+  - {fileID: 776850247}
