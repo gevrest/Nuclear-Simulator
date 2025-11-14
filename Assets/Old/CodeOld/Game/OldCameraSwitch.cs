@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraSwitch : MonoBehaviour
+public class OldCameraSwitch : MonoBehaviour
 {
 
     public Camera reactor_cam;

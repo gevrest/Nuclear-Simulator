@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ReactorController : MonoBehaviour
+public class OldReactorController : MonoBehaviour
 {
 
     public GameObject ControlRods;
