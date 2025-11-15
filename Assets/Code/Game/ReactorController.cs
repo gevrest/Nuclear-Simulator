@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using static Game.ReactorData;
+using static Game.TurbineData;
 
 namespace Game
 {
@@ -10,18 +12,19 @@ namespace Game
         [SerializeField] private Slider _pumpSlider;
         [SerializeField] private Transform _controlRods;
         [SerializeField] private Transform _pumpFan;
+        [SerializeField] private LoseMenu _loseScreen;
         [Header("Minimum Values")]
         [SerializeField] private float _minReactorTemperature = 20f;
         [SerializeField] private float _minReactorPressure = 1f;
         [SerializeField] private float _minTurbineTemperature = 20f;
-        [Header("Warning Values")]
-        [SerializeField] private float _warnReactorTemperature = 2400f;
-        [SerializeField] private float _warnReactorPressure = 160f;
-        [SerializeField] private float _warnTurbineTemperature = 250f;
-        [Header("Maximum Values")]
-        [SerializeField] private float _maxReactorTemperature = 2600f;
-        [SerializeField] private float _maxReactorPressure = 200f;
-        [SerializeField] private float _maxTurbineTemperature = 300f;
+
+        private float _warnReactorTemperature;
+        private float _warnReactorPressure;
+        private float _warnTurbineTemperature;
+
+        private float _maxReactorTemperature;
+        private float _maxReactorPressure;
+        private float _maxTurbineTemperature;
 
         private Vector3 _defaultRodsPosition;
 
@@ -33,6 +36,8 @@ namespace Game
         public bool ReactorOverheated { get; private set; }
         public bool ReactorOverpressured { get; private set; }
         public bool TurbineOverheated { get; private set; }
+        public bool TurbineBroken { get; private set; }
+        public bool LowFuel { get; private set; }
 
         private void Awake()
         {
@@ -53,6 +58,17 @@ namespace Game
             ReactorOverheated = ReactorTemperature >= _warnReactorTemperature ? true : false;
             ReactorOverpressured = ReactorPressure >= _warnReactorPressure ? true : false;
             TurbineOverheated = TurbineTemperature >= _warnTurbineTemperature ? true : false;
+            LowFuel = FuelReserve <= 0.3f ? true : false;
+
+            if (TurbineBroken)
+                _pumpSlider.value = 0f;
+            else
+                TurbineBroken = TurbineTemperature >= _maxTurbineTemperature ? true : false;
+
+            if (ReactorTemperature >= _maxReactorTemperature || ReactorPressure >= _maxReactorPressure)
+            {
+                _loseScreen.LoseGame();
+            }
         }
 
         private void FixedUpdate()
@@ -91,6 +107,34 @@ namespace Game
 
                 yield return new WaitForSeconds(0.1f);
             }
+        }
+
+        public void RestoreFuel()
+        {
+            FuelReserve = 1f;
+        }
+
+        public void RepairTurbine()
+        {
+            TurbineBroken = false;
+            TurbineTemperature = _minTurbineTemperature;
+        }
+
+        public void SetReactorData(ReactorUpgradeData reactorUpgradeData)
+        {
+            Debug.Log("Set");
+            _maxReactorTemperature = reactorUpgradeData.MaxTemperature;
+            _maxReactorPressure = reactorUpgradeData.MaxPressure;
+
+            _warnReactorTemperature = _maxReactorTemperature - 200f;
+            _warnReactorPressure = _maxReactorPressure - 40f;
+        }
+
+        public void SetTurbineData(TurbineUpgradeData turbineUpgradeData)
+        {
+            _maxTurbineTemperature = turbineUpgradeData.MaxTemperature;
+
+            _warnTurbineTemperature = _maxTurbineTemperature - 50f;
         }
     }
 }   

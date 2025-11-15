@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using static Game.TransformatorData;
 
 namespace Game
 {
@@ -8,6 +9,8 @@ namespace Game
     {
         [SerializeField] ReactorController _reactorController;
         [SerializeField] TMP_Text _powerValue;
+
+        private float _generationRate = 1f;
 
         public float Power { get; private set; }
         public float Money { get; private set; }
@@ -28,8 +31,26 @@ namespace Game
             {
                 yield return new WaitForSeconds(0.05f);
                 Power = _reactorController.TurbineTemperature * 5 - 100f;
-                Money += Power / 500;
+                Money += Power / 500 * _generationRate;
             }
+        }
+
+        public bool TryDebitMoney(float money)
+        {
+            if (money <= Money)
+            {
+                Money -= money;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void SetTransformatorData(TransformatorUpgradeData transformatorUpgradeData)
+        {
+            _generationRate = transformatorUpgradeData.GenerationRate;
         }
     }
 }
