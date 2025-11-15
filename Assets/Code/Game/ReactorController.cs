@@ -122,7 +122,6 @@ namespace Game
 
         public void SetReactorData(ReactorUpgradeData reactorUpgradeData)
         {
-            Debug.Log("Set");
             _maxReactorTemperature = reactorUpgradeData.MaxTemperature;
             _maxReactorPressure = reactorUpgradeData.MaxPressure;
 

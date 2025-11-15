@@ -16,6 +16,7 @@ namespace Game
         [SerializeField] private Image _reactorTemperatureWarn;
         [SerializeField] private Image _reactorPressureWarn;
         [SerializeField] private Image _turbineTemperatureWarn;
+        [SerializeField] private TMP_Text _turbineBrokenWarn;
         [SerializeField] private GameObject _lowFuelWarn;
 
         private void Update()
@@ -29,6 +30,7 @@ namespace Game
             _reactorTemperatureWarn.gameObject.SetActive(_reactorController.ReactorOverheated);
             _reactorPressureWarn.gameObject.SetActive(_reactorController.ReactorOverpressured);
             _turbineTemperatureWarn.gameObject.SetActive(_reactorController.TurbineOverheated);
+            _turbineBrokenWarn.gameObject.SetActive(_reactorController.TurbineBroken);
         }
     }
 }
